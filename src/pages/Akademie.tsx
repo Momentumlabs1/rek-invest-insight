@@ -11,7 +11,7 @@ import { VideoPlayerModal } from "@/components/VideoPlayerModal";
 import { AkademieProgressBar } from "@/components/AkademieProgressBar";
 import { CompletionModal } from "@/components/CompletionModal";
 
-const STORAGE_KEY = "rek-akademie-progress";
+const STORAGE_KEY = "strichabi-immo-demo-akademie-progress";
 
 export default function Akademie() {
   const [completedLessons, setCompletedLessons] = useState<number[]>([]);
@@ -75,7 +75,7 @@ export default function Akademie() {
             Kostenloser Online-Kurs
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">REK Akademie</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">strichabi-immo-demo Akademie</h1>
           <p className="text-xl text-muted-foreground">
             Lernen Sie in 7 Lektionen alles über erfolgreiche Immobilieninvestitionen
           </p>

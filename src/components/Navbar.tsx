@@ -19,7 +19,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-2">
             <Building2 className="h-6 w-6 text-primary" />
-            <span className="font-bold text-xl text-foreground">REK</span>
+            <span className="font-bold text-xl text-foreground">strichabi-immo-demo</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-8">

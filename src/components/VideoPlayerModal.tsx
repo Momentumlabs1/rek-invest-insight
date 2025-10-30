@@ -8,7 +8,7 @@ interface VideoPlayerModalProps {
   lesson: {
     id: number;
     title: string;
-    videoUrl: string;
+    videoUrl?: string;
     duration: string;
   };
   onComplete: (lessonId: number) => void;
@@ -24,7 +24,7 @@ export function VideoPlayerModal({
   isCompleted,
   nextLesson,
 }: VideoPlayerModalProps) {
-  const getVideoEmbed = (url: string) => {
+  const getVideoEmbed = (url?: string) => {
     return `https://www.youtube.com/embed/dQw4w9WgXcQ`;
   };
 

@@ -24,7 +24,7 @@ export function CompletionModal({ isOpen, onClose }: CompletionModalProps) {
           </h2>
           
           <p className="text-xl text-muted-foreground mb-8">
-            Sie haben alle 7 Lektionen der REK Akademie erfolgreich abgeschlossen!
+            Sie haben alle 7 Lektionen der strichabi-immo-demo Akademie erfolgreich abgeschlossen!
           </p>
 
           <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 mb-8">

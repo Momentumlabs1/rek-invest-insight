@@ -44,7 +44,7 @@ export default function Handbuch() {
           </p>
           
           <p className="text-muted-foreground max-w-3xl mx-auto">
-            Das REK Handbuch bietet Antworten auf Ihre Fragen und eine umfangreiche Wissensdatenbank 
+            Das strichabi-immo-demo Handbuch bietet Antworten auf Ihre Fragen und eine umfangreiche Wissensdatenbank 
             rund um Immobilieninvestitionen, Finanzierung, Steuern und rechtliche Aspekte.
           </p>
         </div>

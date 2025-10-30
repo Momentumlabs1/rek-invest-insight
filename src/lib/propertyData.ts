@@ -10,7 +10,7 @@ export const properties: Property[] = [
     rooms: 2,
     rent: 850,
     fertigstellung: '2027',
-    bautraeger: 'REK Projektentwicklung',
+    bautraeger: 'strichabi-immo-demo Projektentwicklung',
     stockwerk: '1 von 5',
     foerderungen: ['EH40', 'QNG', 'KfW 298', 'Sonder-AfA', 'Degressive AfA'],
     images: [
@@ -31,7 +31,7 @@ export const properties: Property[] = [
     rooms: 1,
     rent: 680,
     fertigstellung: '2027',
-    bautraeger: 'REK Projektentwicklung',
+    bautraeger: 'strichabi-immo-demo Projektentwicklung',
     stockwerk: '2 von 5',
     foerderungen: ['EH40', 'QNG', 'KfW 298', 'Sonder-AfA'],
     images: [
@@ -52,7 +52,7 @@ export const properties: Property[] = [
     rooms: 4,
     rent: 1350,
     fertigstellung: '2026',
-    bautraeger: 'REK Projektentwicklung',
+    bautraeger: 'strichabi-immo-demo Projektentwicklung',
     stockwerk: 'Penthouse',
     foerderungen: ['EH40', 'KfW 298', 'Sonder-AfA'],
     images: [
@@ -73,7 +73,7 @@ export const properties: Property[] = [
     rooms: 3,
     rent: 1100,
     fertigstellung: '2027',
-    bautraeger: 'REK Projektentwicklung',
+    bautraeger: 'strichabi-immo-demo Projektentwicklung',
     stockwerk: 'EG mit Terrasse',
     foerderungen: ['EH40', 'QNG', 'KfW 298', 'Sonder-AfA'],
     images: [
@@ -94,7 +94,7 @@ export const properties: Property[] = [
     rooms: 3,
     rent: 920,
     fertigstellung: '2026',
-    bautraeger: 'REK Projektentwicklung',
+    bautraeger: 'strichabi-immo-demo Projektentwicklung',
     stockwerk: '3 von 4',
     foerderungen: ['EH40', 'KfW 298', 'Sonder-AfA'],
     images: [
@@ -115,7 +115,7 @@ export const properties: Property[] = [
     rooms: 2,
     rent: 865,
     fertigstellung: '2027',
-    bautraeger: 'REK Projektentwicklung',
+    bautraeger: 'strichabi-immo-demo Projektentwicklung',
     stockwerk: '4 von 5',
     foerderungen: ['EH40', 'QNG', 'KfW 298', 'Sonder-AfA'],
     images: [

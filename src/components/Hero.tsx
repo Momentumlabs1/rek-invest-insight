@@ -18,7 +18,7 @@ export function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-          REK analysiert Neubauimmobilien mit künstlicher Intelligenz und zeigt dir 
+          strichabi-immo-demo analysiert Neubauimmobilien mit künstlicher Intelligenz und zeigt dir 
           die besten Investitionsmöglichkeiten. Ab 200€ monatlich.
         </p>
 
