@@ -42,8 +42,8 @@ const tourSteps: TourStep[] = [
   {
     title: "Akademie & Wissensdatenbank",
     description: "Kostenlose Video-Kurse und ein umfangreiches Handbuch machen Sie zum Immobilien-Experten - auch ohne Vorkenntnisse.",
-    target: "nav",
-    position: "bottom",
+    target: "#akademie-section",
+    position: "top",
     highlight: true,
   },
 ];

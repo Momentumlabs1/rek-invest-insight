@@ -6,7 +6,7 @@ import { Calculator } from "@/components/Calculator";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { InteractiveTour } from "@/components/InteractiveTour";
-import { AkademiePreview } from "@/components/AkademiePreview";
+import { AkademieSection } from "@/components/AkademieSection";
 import { BookingButton } from "@/components/BookingButton";
 
 export default function Index() {
@@ -17,7 +17,7 @@ export default function Index() {
       <HowItWorks />
       <PropertyShowcase />
       <Calculator />
-      <AkademiePreview />
+      <AkademieSection />
       <CTA />
       <Footer />
       
