@@ -8,7 +8,7 @@ export function PropertyShowcase() {
   const featured = properties.slice(0, 3);
 
   return (
-    <section className="py-20 px-4 bg-gray-50">
+    <section id="properties" className="py-20 px-4 bg-gray-50 scroll-mt-20">
       <div className="container mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-6">
           <div>
