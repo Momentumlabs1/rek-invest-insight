@@ -152,11 +152,12 @@ export function InteractiveTour() {
       {!isActive && hasSeenTour && (
         <Button
           onClick={restartTour}
-          className="fixed bottom-6 right-6 z-50 shadow-2xl hover:scale-105 transition-transform duration-300 gap-2"
-          size="lg"
+          variant="ghost"
+          className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 shadow-lg hover:shadow-xl transition-all duration-300 gap-2 text-xs md:text-sm"
+          size="sm"
         >
-          <Sparkles className="h-5 w-5" />
-          Tour starten
+          <Sparkles className="h-4 w-4" />
+          Tour erneut ansehen
         </Button>
       )}
 
@@ -200,24 +201,24 @@ export function InteractiveTour() {
             />
           )}
 
-          {/* Tour Card */}
-          <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none">
-            <Card className="max-w-2xl w-full p-8 shadow-2xl pointer-events-auto animate-scale-in border-2 border-primary/20 bg-background">
+          {/* Tour Card - Mobile optimized */}
+          <div className="fixed inset-x-0 bottom-0 md:inset-0 z-[101] md:flex md:items-center md:justify-center p-3 md:p-4 pointer-events-none">
+            <Card className="max-w-2xl w-full p-4 md:p-8 shadow-2xl pointer-events-auto animate-scale-in border-2 border-primary/20 bg-background">
               {/* Close button */}
               <button
                 onClick={handleSkip}
-                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+                className="absolute top-2 right-2 md:top-4 md:right-4 text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Tour beenden"
               >
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 md:h-6 md:w-6" />
               </button>
 
               {/* Step indicator */}
-              <div className="flex gap-2 mb-6">
+              <div className="flex gap-2 mb-4 md:mb-6">
                 {tourSteps.map((_, index) => (
                   <div
                     key={index}
-                    className={`h-2 flex-1 rounded-full transition-all duration-300 ${
+                    className={`h-1.5 md:h-2 flex-1 rounded-full transition-all duration-300 ${
                       index <= currentStep ? "bg-primary" : "bg-muted"
                     }`}
                   />
@@ -225,40 +226,40 @@ export function InteractiveTour() {
               </div>
 
               {/* Content */}
-              <div className="mb-8 min-h-[200px]">
-                <h2 className="text-3xl font-bold mb-4 text-foreground animate-fade-in">
+              <div className="mb-4 md:mb-8">
+                <h2 className="text-xl md:text-3xl font-bold mb-2 md:mb-4 text-foreground animate-fade-in">
                   {tourSteps[currentStep].title}
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed animate-fade-in">
+                <p className="text-sm md:text-lg text-muted-foreground leading-relaxed animate-fade-in">
                   {tourSteps[currentStep].description}
                 </p>
               </div>
 
               {/* Navigation */}
               <div className="flex items-center justify-between">
-                <div className="text-sm text-muted-foreground">
+                <div className="text-xs md:text-sm text-muted-foreground">
                   Schritt {currentStep + 1} von {tourSteps.length}
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-2 md:gap-3">
                   {currentStep > 0 && (
                     <Button
                       onClick={handlePrevious}
                       variant="outline"
-                      size="lg"
-                      className="gap-2"
+                      size="sm"
+                      className="gap-1 md:gap-2 h-9 md:h-11 text-sm md:text-base"
                     >
-                      <ArrowLeft className="h-4 w-4" />
+                      <ArrowLeft className="h-3 w-3 md:h-4 md:w-4" />
                       Zurück
                     </Button>
                   )}
                   <Button
                     onClick={handleNext}
-                    size="lg"
-                    className="gap-2 shadow-lg hover:shadow-xl transition-shadow"
+                    size="sm"
+                    className="gap-1 md:gap-2 shadow-lg hover:shadow-xl transition-shadow h-9 md:h-11 text-sm md:text-base"
                   >
                     {currentStep === tourSteps.length - 1 ? "Fertig" : "Weiter"}
                     {currentStep < tourSteps.length - 1 && (
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-3 w-3 md:h-4 md:w-4" />
                     )}
                   </Button>
                 </div>
@@ -267,7 +268,7 @@ export function InteractiveTour() {
               {/* Skip button */}
               <button
                 onClick={handleSkip}
-                className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors mt-4"
+                className="w-full text-center text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors mt-3 md:mt-4"
               >
                 Tour überspringen
               </button>

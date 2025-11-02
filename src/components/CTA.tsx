@@ -1,8 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
 
 export function CTA() {
+  const handleBooking = () => {
+    // Öffne Email Client für Buchung
+    const email = "info@strichabi-immo.de";
+    const subject = "Terminanfrage - Kostenlose Beratung";
+    const body = "Hallo,%0D%0A%0D%0AIch interessiere mich für eine kostenlose Beratung zu Immobilieninvestments.%0D%0A%0D%0ABitte kontaktieren Sie mich für einen Termin.%0D%0A%0D%0AMit freundlichen Grüßen";
+    
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    
+    toast.success("Email-Client wird geöffnet", {
+      description: "Wir melden uns schnellstmöglich bei Ihnen!"
+    });
+  };
+
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto max-w-4xl">
@@ -24,6 +38,7 @@ export function CTA() {
                 size="lg" 
                 variant="secondary" 
                 className="h-14 px-8 text-base shadow-xl"
+                onClick={handleBooking}
               >
                 Kostenlos beraten lassen
                 <ArrowRight className="ml-2 h-5 w-5" />

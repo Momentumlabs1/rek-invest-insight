@@ -6,12 +6,26 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import { Building2, Menu, X } from "lucide-react";
+import { Building2, Menu, X, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "sonner";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleBooking = () => {
+    // Öffne Email Client für Buchung
+    const email = "info@strichabi-immo.de";
+    const subject = "Terminanfrage - Kostenlose Beratung";
+    const body = "Hallo,%0D%0A%0D%0AIch interessiere mich für eine kostenlose Beratung zu Immobilieninvestments.%0D%0A%0D%0ABitte kontaktieren Sie mich für einen Termin.%0D%0A%0D%0AMit freundlichen Grüßen";
+    
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    
+    toast.success("Email-Client wird geöffnet", {
+      description: "Wir melden uns schnellstmöglich bei Ihnen!"
+    });
+  };
 
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-lg border-b border-border z-50">
@@ -71,8 +85,9 @@ export function Navbar() {
           </div>
 
           <div className="hidden md:block">
-            <Button size="sm" className="h-9">
-              Jetzt starten
+            <Button size="sm" className="h-9 gap-2" onClick={handleBooking}>
+              <Calendar className="h-4 w-4" />
+              Termin buchen
             </Button>
           </div>
 
@@ -127,8 +142,9 @@ export function Navbar() {
               >
                 So geht's
               </a>
-              <Button size="sm" className="w-full">
-                Jetzt starten
+              <Button size="sm" className="w-full gap-2" onClick={handleBooking}>
+                <Calendar className="h-4 w-4" />
+                Termin buchen
               </Button>
             </div>
           </div>

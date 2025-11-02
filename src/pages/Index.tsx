@@ -7,6 +7,7 @@ import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { InteractiveTour } from "@/components/InteractiveTour";
 import { AkademiePreview } from "@/components/AkademiePreview";
+import { BookingButton } from "@/components/BookingButton";
 
 export default function Index() {
   return (
@@ -22,6 +23,7 @@ export default function Index() {
       
       {/* Demo Features für Investor */}
       <InteractiveTour />
+      <BookingButton />
     </div>
   );
 }
