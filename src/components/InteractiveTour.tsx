@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { X, ArrowRight, ArrowLeft, Sparkles } from "lucide-react";
@@ -52,6 +52,8 @@ export function InteractiveTour() {
   const [isActive, setIsActive] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [hasSeenTour, setHasSeenTour] = useState(false);
+  const [highlightedElement, setHighlightedElement] = useState<DOMRect | null>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const seen = localStorage.getItem("strichabi-tour-completed");
@@ -67,13 +69,43 @@ export function InteractiveTour() {
   }, []);
 
   const scrollToTarget = (target: string) => {
-    if (target === "body") return;
+    if (target === "body") {
+      setHighlightedElement(null);
+      return;
+    }
     
     const element = document.querySelector(target);
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "center" });
+      
+      // Wait for scroll to finish, then highlight
+      setTimeout(() => {
+        const rect = element.getBoundingClientRect();
+        setHighlightedElement(rect);
+      }, 500);
     }
   };
+
+  // Update highlight on scroll/resize
+  useEffect(() => {
+    if (!isActive || !tourSteps[currentStep].target || tourSteps[currentStep].target === "body") return;
+
+    const updateHighlight = () => {
+      const element = document.querySelector(tourSteps[currentStep].target);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        setHighlightedElement(rect);
+      }
+    };
+
+    window.addEventListener("scroll", updateHighlight);
+    window.addEventListener("resize", updateHighlight);
+
+    return () => {
+      window.removeEventListener("scroll", updateHighlight);
+      window.removeEventListener("resize", updateHighlight);
+    };
+  }, [isActive, currentStep]);
 
   const handleNext = () => {
     if (currentStep < tourSteps.length - 1) {
@@ -130,8 +162,42 @@ export function InteractiveTour() {
       {/* Tour Overlay */}
       {isActive && (
         <>
-          {/* Dark overlay */}
-          <div className="fixed inset-0 bg-black/60 z-[100] animate-fade-in" />
+          {/* Dark overlay with spotlight cutout */}
+          <div 
+            ref={overlayRef}
+            className="fixed inset-0 z-[100] animate-fade-in pointer-events-none"
+            style={{
+              background: highlightedElement 
+                ? `
+                  radial-gradient(
+                    ellipse ${highlightedElement.width + 40}px ${highlightedElement.height + 40}px at 
+                    ${highlightedElement.left + highlightedElement.width / 2}px 
+                    ${highlightedElement.top + highlightedElement.height / 2}px,
+                    transparent 0%,
+                    transparent 50%,
+                    rgba(0, 0, 0, 0.75) 70%,
+                    rgba(0, 0, 0, 0.85) 100%
+                  )
+                `
+                : 'rgba(0, 0, 0, 0.75)'
+            }}
+          />
+
+          {/* Pulsing highlight ring */}
+          {highlightedElement && tourSteps[currentStep].highlight && (
+            <div
+              className="fixed z-[101] pointer-events-none animate-pulse"
+              style={{
+                left: highlightedElement.left - 8,
+                top: highlightedElement.top - 8,
+                width: highlightedElement.width + 16,
+                height: highlightedElement.height + 16,
+                border: '3px solid rgb(37, 99, 235)',
+                borderRadius: '12px',
+                boxShadow: '0 0 30px 5px rgba(37, 99, 235, 0.6), inset 0 0 30px 5px rgba(37, 99, 235, 0.3)',
+              }}
+            />
+          )}
 
           {/* Tour Card */}
           <div className="fixed inset-0 z-[101] flex items-center justify-center p-4 pointer-events-none">
@@ -207,17 +273,6 @@ export function InteractiveTour() {
             </Card>
           </div>
 
-          {/* Spotlight effect (optional highlight) */}
-          {tourSteps[currentStep].highlight && tourSteps[currentStep].target !== "body" && (
-            <div className="fixed inset-0 z-[99] pointer-events-none">
-              <style>{`
-                @keyframes pulse-spotlight {
-                  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7); }
-                  50% { box-shadow: 0 0 0 20px rgba(37, 99, 235, 0); }
-                }
-              `}</style>
-            </div>
-          )}
         </>
       )}
     </>
