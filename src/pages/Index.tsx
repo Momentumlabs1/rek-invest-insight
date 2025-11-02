@@ -6,7 +6,7 @@ import { Calculator } from "@/components/Calculator";
 import { CTA } from "@/components/CTA";
 import { Footer } from "@/components/Footer";
 import { InteractiveTour } from "@/components/InteractiveTour";
-import { BookingButton } from "@/components/BookingButton";
+import { AkademiePreview } from "@/components/AkademiePreview";
 
 export default function Index() {
   return (
@@ -16,12 +16,12 @@ export default function Index() {
       <HowItWorks />
       <PropertyShowcase />
       <Calculator />
+      <AkademiePreview />
       <CTA />
       <Footer />
       
       {/* Demo Features für Investor */}
       <InteractiveTour />
-      <BookingButton />
     </div>
   );
 }

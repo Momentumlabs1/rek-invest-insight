@@ -58,10 +58,11 @@ export function InteractiveTour() {
   useEffect(() => {
     const seen = localStorage.getItem("strichabi-tour-completed");
     if (!seen) {
-      // Auto-start tour after 1 second on first visit
+      // Auto-start tour after 2 seconds on first visit
       const timer = setTimeout(() => {
         setIsActive(true);
-      }, 1000);
+        scrollToTarget(tourSteps[0].target);
+      }, 2000);
       return () => clearTimeout(timer);
     } else {
       setHasSeenTour(true);
