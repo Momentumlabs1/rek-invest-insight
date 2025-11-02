@@ -77,7 +77,7 @@ export function InteractiveTour() {
     
     const element = document.querySelector(target);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
       
       // Wait for scroll to finish, then highlight
       setTimeout(() => {
@@ -264,14 +264,6 @@ export function InteractiveTour() {
                   </Button>
                 </div>
               </div>
-
-              {/* Skip button */}
-              <button
-                onClick={handleSkip}
-                className="w-full text-center text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors mt-3 md:mt-4"
-              >
-                Tour überspringen
-              </button>
             </Card>
           </div>
 
